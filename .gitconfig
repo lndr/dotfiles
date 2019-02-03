@@ -1,3 +1,6 @@
 [user]
 	name = Leander Claes
 	email = claes@emt.uni-paderborn.de
+[core]
+	filemode = false
+	autocrlf = true

@@ -64,3 +64,14 @@ zstyle ':completion:*' hosts off
 # Source custom aliases and functions (same for all bourne-compatible shells)
 [ -f ~/.aliases ] && . ~/.aliases
 [ -f ~/.functions ] && . ~/.functions
+
+# Check if tmux sessions are active and list them
+if command -v tmux &> /dev/null && [ ! -n "$TMUX" ]
+then
+  command tmux ls &> /dev/null; rc=$?
+  if [ $rc -eq 0  ]
+  then
+    echo "\nActive tmux sessions:"
+    tmux ls
+  fi
+fi

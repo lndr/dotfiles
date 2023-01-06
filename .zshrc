@@ -36,16 +36,18 @@ bindkey -v
 # To avoid using raw escape sequences, some zsh versions (e.g. on Debian)
 # determine the correct value from terminfo and populate key[...].
 # These are used if available, otherwise falling back to the escape sequence.
+# On Darwin key[...] is populated with ^[O* but the terminal sends ^[[*. 
 if [[ -z "$key" ]]
 then
     typeset -A key
     key=(Up "^[[A" Down "^[[B")
-    bindkey "${key[Up]}" history-beginning-search-backward
-    bindkey "${key[Down]}" history-beginning-search-forward
-else
-    bindkey "^[[A" history-beginning-search-backward
-    bindkey "^[[B" history-beginning-search-forward
+elif [[ `uname` == "Darwin" ]]
+then
+    key[Up]=^[[A
+    key[Down]=^[[B
 fi
+bindkey "${key[Up]}" history-beginning-search-backward
+bindkey "${key[Down]}" history-beginning-search-forward
 
 # Misc options
 setopt autocd

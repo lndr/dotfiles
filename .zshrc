@@ -66,10 +66,6 @@ zstyle ':completion:*' hosts off
 # Enable completion menu 
 zstyle ':completion:*' menu yes select
 
-# Source custom aliases and functions (same for all bourne-compatible shells)
-[ -f ~/.aliases ] && . ~/.aliases
-[ -f ~/.functions ] && . ~/.functions
-
 # Check if tmux sessions are active and list them
 if command -v tmux &> /dev/null && [ ! -n "$TMUX" ]
 then

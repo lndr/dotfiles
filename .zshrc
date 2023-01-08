@@ -63,6 +63,9 @@ compinit
 # Disable completion of hostnames from /etc/hosts
 zstyle ':completion:*' hosts off
 
+# Enable completion menu 
+zstyle ':completion:*' menu yes select
+
 # Source custom aliases and functions (same for all bourne-compatible shells)
 [ -f ~/.aliases ] && . ~/.aliases
 [ -f ~/.functions ] && . ~/.functions

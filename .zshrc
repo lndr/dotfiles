@@ -76,3 +76,6 @@ then
     tmux ls
   fi
 fi
+
+# Aliases 
+alias iipython='ipython -i --matplotlib auto'
